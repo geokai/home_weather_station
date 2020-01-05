@@ -10,7 +10,7 @@ import _inet_config
 
 def connect_wifi():
     """deactivate the access point"""
-    ap_if = network.WLAN(network.STA_IF)
+    ap_if = network.WLAN(network.AP_IF)
     ap_if.active(False)
     """create the connection client and connect if not connected"""
     sta_if = network.WLAN(network.STA_IF)
