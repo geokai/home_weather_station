@@ -18,11 +18,22 @@ import wifi
 import bme280
 import config
 
+BOARD_LED = 16
+BLIP = 0.05
+
 
 # create the i2c and sensor class objects:
 i2c = machine.I2C(scl=machine.Pin(config.I2C_SCL), sda=machine.Pin(config.I2C_SDA))
 sensor = bme280.BME280(i2c=i2c)
 
+led = machine.Pin(BOARD_LED, machine.Pin.OUT)
+
+
+def led_flash():
+    """Momentary 'blip' of the build-in led to indicate sensor reading taken."""
+    led.value(0)    # active low, 0 = on
+    time.sleep(BLIP)
+    led.value(1)    # acitve low, 1 = off
 
 def dots(*, num_of_dots=3, rate=0.5):
     """prints dots in a row (default 3) at a rate (default 0.5 secs)"""
@@ -73,6 +84,8 @@ def echo_client(msg):
 
 def main_loop():
     while True:
+        if config.FLASH_LED:
+            led_flash()
         temperature, barometer, humidity = read_sensor()
         tUnit = cel_or_fah()
         payload = '{0},{1:.1f},{4},{2:.1f},{3:.1f}' \
