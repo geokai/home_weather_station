@@ -11,6 +11,7 @@ rshell = "*"
 
 [packages]
 requests = "*"
+rshell = "*"
 
 [requires]
 python_version = "3.9"

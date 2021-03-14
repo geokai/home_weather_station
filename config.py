@@ -1,5 +1,5 @@
-HOST = '192.168.1.65'
-PORT = 5000
+HOST = '192.168.1.**'
+PORT = 42042
 INTERVAL = 60       # seconds
 I2C_SCL = 5         # D1
 I2C_SDA = 4         # D2
