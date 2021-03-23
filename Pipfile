@@ -11,7 +11,11 @@ rshell = "*"
 
 [packages]
 requests = "*"
+<<<<<<< HEAD
 machine = "*"
+=======
+rshell = "*"
+>>>>>>> 130742869307fab644be68b2caf9532ee20b0b55
 
 [requires]
-python_version = "3.7"
+python_version = "3.9"
