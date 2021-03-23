@@ -11,6 +11,7 @@ rshell = "*"
 
 [packages]
 requests = "*"
+machine = "*"
 
 [requires]
 python_version = "3.7"
